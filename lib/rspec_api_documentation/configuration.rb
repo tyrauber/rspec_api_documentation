@@ -117,6 +117,8 @@ module RspecApiDocumentation
         end
       end
     }
+    add_setting :post_body_formatter, :default => Proc.new { |_| Proc.new { |params| params } }
+    add_setting :dynamic_response_fields, :default => false
 
     def client_method=(new_client_method)
       return if new_client_method == client_method

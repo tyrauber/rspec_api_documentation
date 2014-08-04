@@ -158,6 +158,10 @@ RspecApiDocumentation.configure do |config|
 
   # Removes the DSL method `method`, this is required if you have a parameter named method
   config.disable_dsl_method!
+
+  # Dynamically generates response fields from the actual http response body.
+  # Manually set response_fields take precedence.  Default if off. Set to true to enable.
+  config.dynamic_response_fields = false
 end
 ```
 
