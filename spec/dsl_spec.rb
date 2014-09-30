@@ -701,3 +701,34 @@ resource Order do
     expect(example.metadata[:resource_name]).to eq(Order.to_s)
   end
 end
+
+resource "dynamic response fields" do
+  let(:config) do
+    RspecApiDocumentation.configure do |config|
+      config.dynamic_response_fields = true
+    end
+  end
+
+  post "/orders" do
+    parameter :type, "The type of drink you want.", :required => true
+    parameter :size, "The size of drink you want.", :required => true
+    parameter :note, "Any additional notes about your order."
+
+    # response_field :type, "The type of drink you ordered.", :scope => :order
+    # response_field :size, "The size of drink you ordered.", :scope => :order
+    # response_field :note, "Any additional notes about your order.", :scope => :order
+    # response_field :id, "The order id"
+
+    let(:type) { "coffee" }
+    let(:size) { "medium" }
+
+    pending "example metadata" do
+
+      subject { |example| example.metadata}
+
+      it "should include dynamic response fields" do
+        expect(subject[:response_fields]).to_not be_empty
+      end
+    end
+  end
+end
