@@ -14,10 +14,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.add_runtime_dependency "rspec", "~> 3.0.0", ">= 3.0.0"
+  s.add_runtime_dependency "rspec", "~> 3.2.0"
   s.add_runtime_dependency "activesupport", ">= 3.0.0"
   s.add_runtime_dependency "mustache", "~> 0.99", ">= 0.99.4"
   s.add_runtime_dependency "json", "~> 1.4", ">= 1.4.6"
+  s.add_runtime_dependency "builder"
 
   s.add_development_dependency "fakefs", "~> 0.4"
   s.add_development_dependency "sinatra", "~> 1.4.4"
